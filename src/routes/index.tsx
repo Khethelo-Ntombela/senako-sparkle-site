@@ -300,12 +300,12 @@ function Owners() {
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {owners.map((o) => (
-            <div key={o.name} className="group rounded-xl border border-border bg-card p-8 transition-all hover:border-gold/40">
-              <div className="flex items-start gap-5">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gold font-display text-2xl font-bold text-primary-foreground">
+            <div key={o.name} className="group rounded-xl border border-border bg-card p-6 sm:p-8 transition-all hover:border-gold/40">
+              <div className="flex items-start gap-4 sm:gap-5">
+                <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full bg-gold font-display text-xl sm:text-2xl font-bold text-primary-foreground">
                   {o.name.split(" ").map((p) => p[0]).join("")}
                 </div>
-                <div className="flex-1">
+                <div className="min-w-0 flex-1">
                   <h3 className="font-display text-xl font-semibold">{o.name}</h3>
                   <p className="text-sm text-muted-foreground">{o.role}</p>
                   <a href={`tel:${o.phone}`} className="mt-4 inline-flex items-center gap-2 text-gold hover:underline">
