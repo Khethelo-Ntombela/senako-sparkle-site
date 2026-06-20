@@ -1,3 +1,8 @@
 [build]
   command = "vite build"
-  publish = "dist/client"
+  publish = ".netlify/images" # Netlify uses this fallback for the framework output handler
+
+[[redirects]]
+  from = "/*"
+  status = 200
+  to = "/.netlify/functions/server"
