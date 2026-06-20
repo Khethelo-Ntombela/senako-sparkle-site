@@ -336,13 +336,13 @@ function Contact({ onSubmit, status }: { onSubmit: (e: FormEvent<HTMLFormElement
             message and we'll be in touch within one business day.
           </p>
           <div className="mt-8 space-y-4 text-sm">
-            <a href="mailto:hetisani@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold break-all">
+            <a href="mailto:hetisani@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold">
               <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">H</span>
-              hetisani@senakoconsult.com
+              <span className="min-w-0 break-all">hetisani@senakoconsult.com</span>
             </a>
-            <a href="mailto:simphiwe@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold break-all">
+            <a href="mailto:simphiwe@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold">
               <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">S</span>
-              simphiwe@senakoconsult.com
+              <span className="min-w-0 break-all">simphiwe@senakoconsult.com</span>
             </a>
           </div>
         </div>
