@@ -6,10 +6,14 @@ export default defineConfig({
   plugins: [
     tsconfigPaths(),
     tanstackStart({
-      // This tells the engine to output for Netlify, bypassing Cloudflare presets entirely
       server: {
         preset: 'netlify'
       }
     })
-  ]
+  ],
+  // This forces Vite to use esbuild instead of lightningcss, 
+  // bypassing the syntax errors completely
+  build: {
+    cssMinify: 'esbuild'
+  }
 })
