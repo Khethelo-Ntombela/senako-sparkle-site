@@ -57,10 +57,10 @@ function Index() {
 function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 backdrop-blur bg-background/70">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+        <a href="#top" className="flex min-w-0 items-center gap-2">
           <Logo />
-          <span className="font-display text-lg font-semibold tracking-tight">
+          <span className="truncate font-display text-base font-semibold tracking-tight sm:text-lg">
             Senako<span className="text-gold">.</span>
           </span>
         </a>
@@ -70,7 +70,7 @@ function Nav() {
           <a href="#owners" className="hover:text-gold transition-colors">Founders</a>
           <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
         </nav>
-        <a href="#contact" className="inline-flex items-center rounded-md bg-gold px-4 py-2 text-sm font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03]">
+        <a href="#contact" className="inline-flex shrink-0 items-center rounded-md bg-gold px-3 py-2 text-xs font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03] sm:px-4 sm:text-sm">
           Get a quote
         </a>
       </div>
@@ -107,29 +107,29 @@ function Hero() {
         </svg>
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-36">
-        <p className="animate-rise mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-card/40 px-3 py-1 text-xs uppercase tracking-[0.18em] text-gold">
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 md:py-36">
+        <p className="animate-rise mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-card/40 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-gold sm:text-xs">
           <span className="h-1.5 w-1.5 rounded-full bg-gold animate-glow" />
           Senako Consulting Services
         </p>
-        <h1 className="animate-rise font-display text-5xl font-bold leading-[1.05] md:text-7xl" style={{ animationDelay: "0.1s" }}>
+        <h1 className="animate-rise font-display text-4xl font-bold leading-[1.05] sm:text-5xl md:text-7xl" style={{ animationDelay: "0.1s" }}>
           People. Logistics. <br />
           <span className="shimmer-text">Land.</span>
         </h1>
-        <p className="animate-rise mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl" style={{ animationDelay: "0.2s" }}>
+        <p className="animate-rise mt-5 max-w-2xl text-base text-muted-foreground sm:mt-6 sm:text-lg md:text-xl" style={{ animationDelay: "0.2s" }}>
           We help South African businesses grow through sharp HR consulting,
           reliable trucking, and modern farming solutions — all under one trusted roof.
         </p>
-        <div className="animate-rise mt-10 flex flex-wrap gap-4" style={{ animationDelay: "0.3s" }}>
-          <a href="#contact" className="inline-flex items-center gap-2 rounded-md bg-gold px-6 py-3 font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03]">
+        <div className="animate-rise mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4" style={{ animationDelay: "0.3s" }}>
+          <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03]">
             Start a conversation →
           </a>
-          <a href="#services" className="inline-flex items-center gap-2 rounded-md border border-border bg-card/60 px-6 py-3 font-semibold text-foreground hover:border-gold/50 transition-colors">
+          <a href="#services" className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card/60 px-6 py-3 font-semibold text-foreground hover:border-gold/50 transition-colors">
             Explore services
           </a>
         </div>
 
-        <div className="animate-rise mt-16 grid grid-cols-3 gap-6 border-t border-border pt-8 text-sm md:max-w-xl" style={{ animationDelay: "0.4s" }}>
+        <div className="animate-rise mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8 text-sm sm:mt-16 sm:gap-6 md:max-w-xl" style={{ animationDelay: "0.4s" }}>
           <Stat value="3" label="Service lines" />
           <Stat value="100%" label="SA-owned" />
           <Stat value="24/7" label="Client support" />
@@ -141,9 +141,9 @@ function Hero() {
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div>
-      <div className="font-display text-3xl font-bold text-gold">{value}</div>
-      <div className="text-muted-foreground">{label}</div>
+    <div className="min-w-0">
+      <div className="font-display text-2xl font-bold text-gold sm:text-3xl">{value}</div>
+      <div className="text-xs text-muted-foreground sm:text-sm">{label}</div>
     </div>
   );
 }
@@ -182,11 +182,11 @@ function Services() {
     },
   ];
   return (
-    <section id="services" className="relative py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-14 max-w-2xl">
+    <section id="services" className="relative py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-10 max-w-2xl sm:mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">What we do</p>
-          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">Three businesses. One standard.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Three businesses. One standard.</h2>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           {items.map((it, i) => (
@@ -212,11 +212,11 @@ function Services() {
 
 function About() {
   return (
-    <section id="about" className="relative border-y border-border bg-card/40 py-24">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center">
+    <section id="about" className="relative border-y border-border bg-card/40 py-16 sm:py-24">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-2 md:items-center">
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-gold">About Senako</p>
-          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">Built on integrity, driven by results.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Built on integrity, driven by results.</h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
             Senako Consulting Services is a proudly South African company combining
             people-first HR practices, dependable trucking, and modern farming under
@@ -234,9 +234,9 @@ function About() {
         </div>
         <div className="relative">
           <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-background p-1 shadow-gold">
-            <div className="h-full w-full rounded-xl bg-background/60 p-8 flex flex-col justify-between min-h-[420px]">
+            <div className="h-full w-full rounded-xl bg-background/60 p-5 sm:p-8 flex flex-col justify-between min-h-[420px]">
               <div className="animate-float">
-                <div className="font-display text-7xl font-bold text-gold/80 leading-none">S.</div>
+                <div className="font-display text-6xl sm:text-7xl font-bold text-gold/80 leading-none">S.</div>
                 <div className="mt-2 text-sm uppercase tracking-[0.25em] text-muted-foreground">Senako</div>
               </div>
 
@@ -292,20 +292,20 @@ function Owners() {
     { name: "Simphiwe Ntombela", role: "Co-Founder & Director", phone: "0833216757" },
   ];
   return (
-    <section id="owners" className="py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-14 max-w-2xl">
+    <section id="owners" className="py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-10 max-w-2xl sm:mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">The founders</p>
-          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">The people behind Senako.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">The people behind Senako.</h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {owners.map((o) => (
-            <div key={o.name} className="group rounded-xl border border-border bg-card p-8 transition-all hover:border-gold/40">
-              <div className="flex items-start gap-5">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gold font-display text-2xl font-bold text-primary-foreground">
+            <div key={o.name} className="group rounded-xl border border-border bg-card p-6 sm:p-8 transition-all hover:border-gold/40">
+              <div className="flex items-start gap-4 sm:gap-5">
+                <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full bg-gold font-display text-xl sm:text-2xl font-bold text-primary-foreground">
                   {o.name.split(" ").map((p) => p[0]).join("")}
                 </div>
-                <div className="flex-1">
+                <div className="min-w-0 flex-1">
                   <h3 className="font-display text-xl font-semibold">{o.name}</h3>
                   <p className="text-sm text-muted-foreground">{o.role}</p>
                   <a href={`tel:${o.phone}`} className="mt-4 inline-flex items-center gap-2 text-gold hover:underline">
@@ -326,23 +326,23 @@ function Owners() {
 
 function Contact({ onSubmit, status }: { onSubmit: (e: FormEvent<HTMLFormElement>) => void; status: FormState }) {
   return (
-    <section id="contact" className="relative border-t border-border bg-card/40 py-24 md:py-32">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-5">
+    <section id="contact" className="relative border-t border-border bg-card/40 py-16 sm:py-24 md:py-32">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-5">
         <div className="md:col-span-2">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">Get in touch</p>
-          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">Let's talk about your project.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Let's talk about your project.</h2>
           <p className="mt-5 text-muted-foreground">
             Whether you need HR support, transport, or farming services — drop us a
             message and we'll be in touch within one business day.
           </p>
           <div className="mt-8 space-y-4 text-sm">
-            <a href="mailto:hetisani@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold break-all">
+            <a href="mailto:hetisani@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold">
               <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">H</span>
-              hetisani@senakoconsult.com
+              <span className="min-w-0 break-all">hetisani@senakoconsult.com</span>
             </a>
-            <a href="mailto:simphiwe@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold break-all">
+            <a href="mailto:simphiwe@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold">
               <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">S</span>
-              simphiwe@senakoconsult.com
+              <span className="min-w-0 break-all">simphiwe@senakoconsult.com</span>
             </a>
           </div>
         </div>
