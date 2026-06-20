@@ -7,14 +7,11 @@ export default defineConfig({
   plugins: [
     tsconfigPaths(),
     tailwindcss(),
-    tanstackStart({
-      // The SSR bundle is wrapped by netlify/functions/server.mjs (Netlify
-      // Functions v2). We keep the default Vite SSR output at dist/server
-      // and let the Netlify function import it directly.
-      server: {
-        preset: 'node-server'
-      }
-    })
+    // The SSR bundle (dist/server/server.js) is wrapped for Netlify by
+    // netlify/functions/server.mjs (Netlify Functions v2). No deploy preset
+    // is needed on the TanStack plugin itself — Netlify routes all requests
+    // through that function and serves dist/client as static assets.
+    tanstackStart()
   ],
   build: {
     cssMinify: 'esbuild'
