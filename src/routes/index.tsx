@@ -57,10 +57,10 @@ function Index() {
 function Nav() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 backdrop-blur bg-background/70">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
+        <a href="#top" className="flex min-w-0 items-center gap-2">
           <Logo />
-          <span className="font-display text-lg font-semibold tracking-tight">
+          <span className="truncate font-display text-base font-semibold tracking-tight sm:text-lg">
             Senako<span className="text-gold">.</span>
           </span>
         </a>
@@ -70,7 +70,7 @@ function Nav() {
           <a href="#owners" className="hover:text-gold transition-colors">Founders</a>
           <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
         </nav>
-        <a href="#contact" className="inline-flex items-center rounded-md bg-gold px-4 py-2 text-sm font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03]">
+        <a href="#contact" className="inline-flex shrink-0 items-center rounded-md bg-gold px-3 py-2 text-xs font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03] sm:px-4 sm:text-sm">
           Get a quote
         </a>
       </div>
