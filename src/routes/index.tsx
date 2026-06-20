@@ -193,7 +193,6 @@ function Services() {
               className="group relative overflow-hidden rounded-xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-gold/40 hover:shadow-gold"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
-              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gold/10 blur-2xl transition-opacity group-hover:opacity-100 opacity-50" />
               <div className="relative">
                 <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gold/15 text-gold transition-transform group-hover:scale-110">
                   {it.icon}
