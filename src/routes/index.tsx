@@ -292,11 +292,11 @@ function Owners() {
     { name: "Simphiwe Ntombela", role: "Co-Founder & Director", phone: "0833216757" },
   ];
   return (
-    <section id="owners" className="py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-14 max-w-2xl">
+    <section id="owners" className="py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-10 max-w-2xl sm:mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">The founders</p>
-          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">The people behind Senako.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">The people behind Senako.</h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {owners.map((o) => (
