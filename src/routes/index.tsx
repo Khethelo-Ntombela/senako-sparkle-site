@@ -232,13 +232,37 @@ function About() {
           </ul>
         </div>
         <div className="relative">
-          <div className="aspect-square rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-background p-1 shadow-gold">
-            <div className="h-full w-full rounded-xl bg-background/60 p-8 flex flex-col justify-between">
+          <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-background p-1 shadow-gold">
+            <div className="h-full w-full rounded-xl bg-background/60 p-8 flex flex-col justify-between min-h-[420px]">
               <div className="animate-float">
                 <div className="font-display text-7xl font-bold text-gold/80 leading-none">S.</div>
                 <div className="mt-2 text-sm uppercase tracking-[0.25em] text-muted-foreground">Senako</div>
               </div>
-              <div className="grid grid-cols-3 gap-3 text-center text-xs uppercase tracking-wider text-muted-foreground">
+
+              {/* Scrollable image strip */}
+              <div className="mt-6">
+                <p className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">Gallery</p>
+                <div
+                  className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory"
+                  style={{ scrollbarWidth: "thin", scrollbarColor: "oklch(0.32 0.008 60) transparent" }}
+                >
+                  {[1, 2, 3].map((n) => (
+                    <div
+                      key={n}
+                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex flex-col items-center justify-center gap-2 text-gold/60 text-xs"
+                    >
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6 opacity-60">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <path d="M21 15l-5-5L5 21" />
+                      </svg>
+                      <span>Image {n}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 grid grid-cols-3 gap-3 text-center text-xs uppercase tracking-wider text-muted-foreground">
                 <div className="rounded-lg border border-border py-3">HR</div>
                 <div className="rounded-lg border border-gold/40 py-3 text-gold">Trucking</div>
                 <div className="rounded-lg border border-border py-3">Farming</div>
