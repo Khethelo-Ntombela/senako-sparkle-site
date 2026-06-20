@@ -42,7 +42,7 @@ function Index() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Nav />
       <Hero />
       <Services />
@@ -80,7 +80,7 @@ function Nav() {
 
 function Logo() {
   return (
-    <div className="relative h-9 w-9">
+    <div className="relative h-9 w-9 shrink-0">
       <div className="absolute inset-0 rounded-full bg-gold animate-spin-slow opacity-80" style={{ maskImage: "radial-gradient(closest-side, transparent 55%, #000 56%)", WebkitMaskImage: "radial-gradient(closest-side, transparent 55%, #000 56%)" }} />
       <div className="absolute inset-1.5 rounded-full bg-background flex items-center justify-center">
         <span className="font-display text-sm font-bold text-gold">S</span>
@@ -107,12 +107,12 @@ function Hero() {
         </svg>
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 md:py-36">
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-28 md:py-36">
         <p className="animate-rise mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-card/40 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-gold sm:text-xs">
           <span className="h-1.5 w-1.5 rounded-full bg-gold animate-glow" />
           Senako Consulting Services
         </p>
-        <h1 className="animate-rise font-display text-4xl font-bold leading-[1.05] sm:text-5xl md:text-7xl" style={{ animationDelay: "0.1s" }}>
+        <h1 className="animate-rise font-display text-4xl font-bold leading-[1.1] sm:text-5xl md:text-7xl" style={{ animationDelay: "0.1s" }}>
           People. Logistics. <br />
           <span className="shimmer-text">Land.</span>
         </h1>
@@ -121,15 +121,16 @@ function Hero() {
           reliable trucking, and modern farming solutions — all under one trusted roof.
         </p>
         <div className="animate-rise mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4" style={{ animationDelay: "0.3s" }}>
-          <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03]">
+          <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 text-center font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03]">
             Start a conversation →
           </a>
-          <a href="#services" className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card/60 px-6 py-3 font-semibold text-foreground hover:border-gold/50 transition-colors">
+          <a href="#services" className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card/60 px-6 py-3 text-center font-semibold text-foreground hover:border-gold/50 transition-colors">
             Explore services
           </a>
         </div>
 
-        <div className="animate-rise mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8 text-sm sm:mt-16 sm:gap-6 md:max-w-xl" style={{ animationDelay: "0.4s" }}>
+        {/* Responsive Stats: Stacked on mobile, 3-columns on desktop */}
+        <div className="animate-rise mt-12 grid grid-cols-1 gap-6 border-t border-border pt-8 text-sm sm:mt-16 sm:grid-cols-3 sm:gap-6 md:max-w-xl" style={{ animationDelay: "0.4s" }}>
           <Stat value="3" label="Service lines" />
           <Stat value="100%" label="SA-owned" />
           <Stat value="24/7" label="Client support" />
@@ -142,8 +143,8 @@ function Hero() {
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="min-w-0">
-      <div className="font-display text-2xl font-bold text-gold sm:text-3xl">{value}</div>
-      <div className="text-xs text-muted-foreground sm:text-sm">{label}</div>
+      <div className="font-display text-3xl font-bold text-gold sm:text-4xl">{value}</div>
+      <div className="text-xs text-muted-foreground uppercase tracking-wider sm:text-sm">{label}</div>
     </div>
   );
 }
@@ -188,11 +189,11 @@ function Services() {
           <p className="text-xs uppercase tracking-[0.2em] text-gold">What we do</p>
           <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Three businesses. One standard.</h2>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
           {items.map((it, i) => (
             <article
               key={it.title}
-              className="group relative overflow-hidden rounded-xl border border-border bg-card p-7 transition-all hover:-translate-y-1 hover:border-gold/40 hover:shadow-gold"
+              className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 sm:p-7 transition-all hover:-translate-y-1 hover:border-gold/40 hover:shadow-gold"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="relative">
@@ -217,7 +218,7 @@ function About() {
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-gold">About Senako</p>
           <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Built on integrity, driven by results.</h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed">
+          <p className="mt-6 text-muted-foreground leading-relaxed text-sm sm:text-base">
             Senako Consulting Services is a proudly South African company combining
             people-first HR practices, dependable trucking, and modern farming under
             one banner. We believe in straight talk, honest pricing, and the kind
@@ -226,7 +227,7 @@ function About() {
           <ul className="mt-6 space-y-3 text-sm">
             {["Transparent pricing", "Local expertise", "Hands-on leadership", "Long-term partnerships"].map((t) => (
               <li key={t} className="flex items-center gap-3">
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-gold text-primary-foreground text-xs font-bold">✓</span>
+                <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold text-primary-foreground text-xs font-bold">✓</span>
                 <span className="text-foreground">{t}</span>
               </li>
             ))}
@@ -234,7 +235,8 @@ function About() {
         </div>
         <div className="relative">
           <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-background p-1 shadow-gold">
-            <div className="h-full w-full rounded-xl bg-background/60 p-5 sm:p-8 flex flex-col justify-between min-h-[420px]">
+            {/* Optimized Card Min-Height for Mobile views */}
+            <div className="h-full w-full rounded-xl bg-background/60 p-5 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[420px]">
               <div className="animate-float">
                 <div className="font-display text-6xl sm:text-7xl font-bold text-gold/80 leading-none">S.</div>
                 <div className="mt-2 text-sm uppercase tracking-[0.25em] text-muted-foreground">Senako</div>
@@ -244,20 +246,25 @@ function About() {
               <div className="mt-6">
                 <p className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">Gallery</p>
                 <div
-                  className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory"
+                  className="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory"
                   style={{ scrollbarWidth: "thin", scrollbarColor: "oklch(0.32 0.008 60) transparent" }}
                 >
                   {[
-                    { n: 1, src: null as string | null },
-                    { n: 2, src: ownersTruck.url },
-                    { n: 3, src: sheepImg.url },
-                  ].map(({ n, src }) => (
+                    { n: 1, src: null as string | null, label: "HR Systems" },
+                    { n: 2, src: ownersTruck.url, label: "Logistics Fleet" },
+                    { n: 3, src: sheepImg.url, label: "Farming Solutions" },
+                  ].map(({ n, src, label }) => (
                     <div
                       key={n}
-                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex flex-col items-center justify-center gap-2 text-gold/60 text-xs overflow-hidden"
+                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex flex-col items-center justify-center gap-2 text-gold/60 text-xs overflow-hidden relative group/img"
                     >
                       {src ? (
-                        <img src={src} alt={`Senako gallery ${n}`} className="h-full w-full object-cover" loading="lazy" />
+                        <>
+                          <img src={src} alt={`Senako gallery ${n}`} className="h-full w-full object-cover transition-transform duration-300 group-hover/img:scale-105" loading="lazy" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent flex items-end p-2">
+                            <span className="text-[10px] font-medium tracking-wide text-foreground uppercase">{label}</span>
+                          </div>
+                        </>
                       ) : (
                         <>
                           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6 opacity-60">
@@ -265,7 +272,7 @@ function About() {
                             <circle cx="8.5" cy="8.5" r="1.5" />
                             <path d="M21 15l-5-5L5 21" />
                           </svg>
-                          <span>Image {n}</span>
+                          <span className="font-medium">{label}</span>
                         </>
                       )}
                     </div>
@@ -273,10 +280,10 @@ function About() {
                 </div>
               </div>
 
-              <div className="mt-6 grid grid-cols-3 gap-3 text-center text-xs uppercase tracking-wider text-muted-foreground">
-                <div className="rounded-lg border border-border py-3">HR</div>
-                <div className="rounded-lg border border-gold/40 py-3 text-gold">Trucking</div>
-                <div className="rounded-lg border border-border py-3">Farming</div>
+              <div className="mt-6 grid grid-cols-3 gap-2 text-center text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground">
+                <div className="rounded-lg border border-border py-2.5">HR</div>
+                <div className="rounded-lg border border-gold/40 py-2.5 text-gold font-medium">Trucking</div>
+                <div className="rounded-lg border border-border py-2.5">Farming</div>
               </div>
             </div>
           </div>
@@ -292,131 +299,4 @@ function Owners() {
     { name: "Simphiwe Ntombela", role: "Co-Founder & Director", phone: "0833216757" },
   ];
   return (
-    <section id="owners" className="py-16 sm:py-24 md:py-32">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="mb-10 max-w-2xl sm:mb-14">
-          <p className="text-xs uppercase tracking-[0.2em] text-gold">The founders</p>
-          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">The people behind Senako.</h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2">
-          {owners.map((o) => (
-            <div key={o.name} className="group rounded-xl border border-border bg-card p-6 sm:p-8 transition-all hover:border-gold/40">
-              <div className="flex items-start gap-4 sm:gap-5">
-                <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full bg-gold font-display text-xl sm:text-2xl font-bold text-primary-foreground">
-                  {o.name.split(" ").map((p) => p[0]).join("")}
-                </div>
-                <div className="min-w-0 flex-1">
-                  <h3 className="font-display text-xl font-semibold">{o.name}</h3>
-                  <p className="text-sm text-muted-foreground">{o.role}</p>
-                  <a href={`tel:${o.phone}`} className="mt-4 inline-flex items-center gap-2 text-gold hover:underline">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4">
-                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
-                    </svg>
-                    {o.phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3")}
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Contact({ onSubmit, status }: { onSubmit: (e: FormEvent<HTMLFormElement>) => void; status: FormState }) {
-  return (
-    <section id="contact" className="relative border-t border-border bg-card/40 py-16 sm:py-24 md:py-32">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-5">
-        <div className="md:col-span-2">
-          <p className="text-xs uppercase tracking-[0.2em] text-gold">Get in touch</p>
-          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Let's talk about your project.</h2>
-          <p className="mt-5 text-muted-foreground">
-            Whether you need HR support, transport, or farming services — drop us a
-            message and we'll be in touch within one business day.
-          </p>
-          <div className="mt-8 space-y-4 text-sm">
-            <a href="mailto:hetisani@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold">
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">H</span>
-              <span className="min-w-0 break-all">hetisani@senakoconsult.com</span>
-            </a>
-            <a href="mailto:simphiwe@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold">
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">S</span>
-              <span className="min-w-0 break-all">simphiwe@senakoconsult.com</span>
-            </a>
-          </div>
-        </div>
-
-        <form onSubmit={onSubmit} className="md:col-span-3 rounded-2xl border border-border bg-background/60 p-6 md:p-8 space-y-5">
-          <div className="grid gap-5 sm:grid-cols-2">
-            <Field label="Full name" name="name" required placeholder="Jane Dube" />
-            <Field label="Email" name="email" type="email" required placeholder="you@email.com" />
-            <Field label="Phone" name="phone" type="tel" placeholder="082 000 0000" />
-            <div className="flex flex-col gap-2">
-              <label className="text-xs uppercase tracking-wider text-muted-foreground">Service</label>
-              <select name="service" defaultValue="HR Consulting" className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30">
-                <option>HR Consulting</option>
-                <option>Trucking & Logistics</option>
-                <option>Farming Solutions</option>
-                <option>General enquiry</option>
-              </select>
-            </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <label className="text-xs uppercase tracking-wider text-muted-foreground">Message</label>
-            <textarea name="message" required rows={5} maxLength={1000} placeholder="Tell us about your project..." className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
-          </div>
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.01] disabled:opacity-60"
-          >
-            {status === "sending" ? "Opening your mail app..." : status === "sent" ? "Message ready ✓" : "Send message"}
-          </button>
-          <p className="text-xs text-muted-foreground">
-            By submitting, you agree to be contacted regarding your enquiry.
-          </p>
-        </form>
-      </div>
-    </section>
-  );
-}
-
-function Field({ label, name, type = "text", placeholder, required }: { label: string; name: string; type?: string; placeholder?: string; required?: boolean }) {
-  return (
-    <div className="flex flex-col gap-2">
-      <label className="text-xs uppercase tracking-wider text-muted-foreground">{label}{required && <span className="text-gold"> *</span>}</label>
-      <input
-        type={type}
-        name={name}
-        required={required}
-        placeholder={placeholder}
-        maxLength={200}
-        className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30"
-      />
-    </div>
-  );
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-border bg-background py-10">
-      <div className="mx-auto max-w-6xl px-6 text-sm text-muted-foreground">
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-          <div className="flex items-center gap-2">
-            <Logo />
-            <span>© {new Date().getFullYear()} Senako Consulting Services</span>
-          </div>
-          <div className="flex gap-6">
-            <a href="#services" className="hover:text-gold">Services</a>
-            <a href="#owners" className="hover:text-gold">Founders</a>
-            <a href="#contact" className="hover:text-gold">Contact</a>
-          </div>
-        </div>
-        <p className="mt-4 text-center text-xs opacity-60">
-          Maintained by Litha Ntombela Enterprises Pty Ltd
-        </p>
-      </div>
-    </footer>
-  );
-}
+    <section id="owners" className="py-16 sm:py-2
