@@ -184,7 +184,7 @@ function Services() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-10 max-w-2xl sm:mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">What we do</p>
-          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Three businesses. One standard.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl whitespace-normal break-words">Three businesses. One standard.</h2>
         </div>
         <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
           {items.map((it, i) => (
@@ -210,12 +210,14 @@ function Services() {
 
 function About() {
   return (
-    <section id="about" className="relative border-y border-border bg-card/40 py-16 sm:py-24">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-2 md:items-center">
-        <div>
+    <section id="about" className="relative border-y border-border bg-card/40 py-16 sm:py-24 overflow-hidden">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-2 md:items-center w-full">
+        <div className="min-w-0 w-full">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">About Senako</p>
-          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Built on integrity, driven by results.</h2>
-          <p className="mt-6 text-muted-foreground leading-relaxed text-sm sm:text-base">
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl whitespace-normal break-words leading-tight">
+            Built on integrity, driven by results.
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed text-sm sm:text-base break-words">
             Senako Consulting Services is a proudly South African company combining
             people-first HR practices, dependable trucking, and modern farming under
             one banner. We believe in straight talk, honest pricing, and the kind
@@ -230,7 +232,7 @@ function About() {
             ))}
           </ul>
         </div>
-        <div className="relative">
+        <div className="relative w-full min-w-0">
           <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-background p-1 shadow-gold">
             <div className="h-full w-full rounded-xl bg-background/60 p-5 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[420px]">
               <div className="animate-float">
@@ -238,7 +240,6 @@ function About() {
                 <div className="mt-2 text-sm uppercase tracking-[0.25em] text-muted-foreground">Senako</div>
               </div>
 
-              {/* Lowercase paths cleanly implemented with no overlapping text block artifacts */}
               <div className="mt-6">
                 <p className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">Gallery</p>
                 <div
@@ -246,31 +247,19 @@ function About() {
                   style={{ scrollbarWidth: "thin", scrollbarColor: "oklch(0.32 0.008 60) transparent" }}
                 >
                   {[
-                    { n: 1, src: null },
-                    { n: 2, src: "/public/images/owners-truck.jpg" },
-                    { n: 3, src: "/public/images/sheep.jpg" },
+                    { n: 1, src: "/images/owners-truck.jpg" }, // Shifted loaded assets dynamically 
+                    { n: 2, src: "/images/sheep.jpg" },
                   ].map(({ n, src }) => (
                     <div
                       key={n}
-                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex items-center justify-center overflow-hidden relative"
+                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-solid border-gold/20 bg-gold/5 flex items-center justify-center overflow-hidden relative"
                     >
-                      {src ? (
-                        <img 
-                          src={src} 
-                          alt={`Senako work gallery ${n}`} 
-                          className="h-full w-full object-cover block" 
-                          loading="lazy" 
-                        />
-                      ) : (
-                        <div className="flex flex-col items-center gap-1 text-gold/60 text-xs">
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 opacity-60">
-                            <rect x="3" y="3" width="18" height="18" rx="2" />
-                            <circle cx="8.5" cy="8.5" r="1.5" />
-                            <path d="M21 15l-5-5L5 21" />
-                          </svg>
-                          <span>Image {n}</span>
-                        </div>
-                      )}
+                      <img 
+                        src={src} 
+                        alt={`Senako work gallery item ${n}`} 
+                        className="h-full w-full object-cover block" 
+                        loading="lazy" 
+                      />
                     </div>
                   ))}
                 </div>
@@ -367,7 +356,7 @@ function Contact({ onSubmit, status }: { onSubmit: (e: FormEvent<HTMLFormElement
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-xs uppercase tracking-wider text-muted-foreground">Message</label>
-            <textarea name="message" required rows={5} maxLength={1000} placeholder="Tell us about your project..." className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+            <textarea name="message" required rows={5} maxLength={1000} placeholder="Tell us about your project..." className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30 placeholder:text-muted-foreground/70" />
           </div>
           <button
             type="submit"
@@ -395,7 +384,7 @@ function Field({ label, name, type = "text", placeholder, required }: { label: s
         required={required}
         placeholder={placeholder}
         maxLength={200}
-        className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30 w-full"
+        className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30 w-full placeholder:text-muted-foreground/70"
       />
     </div>
   );
