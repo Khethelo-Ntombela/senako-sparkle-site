@@ -141,9 +141,9 @@ function Hero() {
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div>
-      <div className="font-display text-3xl font-bold text-gold">{value}</div>
-      <div className="text-muted-foreground">{label}</div>
+    <div className="min-w-0">
+      <div className="font-display text-2xl font-bold text-gold sm:text-3xl">{value}</div>
+      <div className="text-xs text-muted-foreground sm:text-sm">{label}</div>
     </div>
   );
 }
