@@ -326,11 +326,11 @@ function Owners() {
 
 function Contact({ onSubmit, status }: { onSubmit: (e: FormEvent<HTMLFormElement>) => void; status: FormState }) {
   return (
-    <section id="contact" className="relative border-t border-border bg-card/40 py-24 md:py-32">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-5">
+    <section id="contact" className="relative border-t border-border bg-card/40 py-16 sm:py-24 md:py-32">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-5">
         <div className="md:col-span-2">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">Get in touch</p>
-          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">Let's talk about your project.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Let's talk about your project.</h2>
           <p className="mt-5 text-muted-foreground">
             Whether you need HR support, transport, or farming services — drop us a
             message and we'll be in touch within one business day.
