@@ -336,13 +336,13 @@ function Contact({ onSubmit, status }: { onSubmit: (e: FormEvent<HTMLFormElement
             message and we'll be in touch within one business day.
           </p>
           <div className="mt-8 space-y-4 text-sm">
-            <a href="tel:0829047800" className="flex items-center gap-3 text-foreground hover:text-gold">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-gold/15 text-gold">H</span>
-              Hetisani — 082 904 7800
+            <a href="mailto:hetisani@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold break-all">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">H</span>
+              hetisani@senakoconsult.com
             </a>
-            <a href="tel:0833216757" className="flex items-center gap-3 text-foreground hover:text-gold">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-gold/15 text-gold">S</span>
-              Simphiwe — 083 321 6757
+            <a href="mailto:simphiwe@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold break-all">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">S</span>
+              simphiwe@senakoconsult.com
             </a>
           </div>
         </div>
