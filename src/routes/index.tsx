@@ -247,17 +247,27 @@ function About() {
                   className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory"
                   style={{ scrollbarWidth: "thin", scrollbarColor: "oklch(0.32 0.008 60) transparent" }}
                 >
-                  {[1, 2, 3].map((n) => (
+                  {[
+                    { n: 1, src: null as string | null },
+                    { n: 2, src: ownersTruck.url },
+                    { n: 3, src: sheepImg.url },
+                  ].map(({ n, src }) => (
                     <div
                       key={n}
-                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex flex-col items-center justify-center gap-2 text-gold/60 text-xs"
+                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex flex-col items-center justify-center gap-2 text-gold/60 text-xs overflow-hidden"
                     >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6 opacity-60">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <circle cx="8.5" cy="8.5" r="1.5" />
-                        <path d="M21 15l-5-5L5 21" />
-                      </svg>
-                      <span>Image {n}</span>
+                      {src ? (
+                        <img src={src} alt={`Senako gallery ${n}`} className="h-full w-full object-cover" loading="lazy" />
+                      ) : (
+                        <>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6 opacity-60">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="M21 15l-5-5L5 21" />
+                          </svg>
+                          <span>Image {n}</span>
+                        </>
+                      )}
                     </div>
                   ))}
                 </div>
