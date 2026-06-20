@@ -146,7 +146,6 @@ function Stat({ value, label }: { value: string; label: string }) {
   );
 }
 
-// ... rest of the file stays exactly standard
 function Services() {
   const items = [
     {
@@ -239,7 +238,7 @@ function About() {
                 <div className="mt-2 text-sm uppercase tracking-[0.25em] text-muted-foreground">Senako</div>
               </div>
 
-              {/* Clean Image Strip — Labels and overlay text layers removed */}
+              {/* Clean Horizontal Media Strip */}
               <div className="mt-6">
                 <p className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">Gallery</p>
                 <div
@@ -253,4 +252,4 @@ function About() {
                   ].map(({ n, src }) => (
                     <div
                       key={n}
-                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex
+                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30
