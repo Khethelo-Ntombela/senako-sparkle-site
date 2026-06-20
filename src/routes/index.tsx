@@ -184,4 +184,86 @@ function Services() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-10 max-w-2xl sm:mb-14">
           <p className="text-xs uppercase tracking-[0.2em] text-gold">What we do</p>
-          <h2 className="mt-3 font-display text-3xl font-bold sm:text-
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl whitespace-normal break-words">Three businesses. One standard.</h2>
+        </div>
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
+          {items.map((it, i) => (
+            <article
+              key={it.title}
+              className="group relative overflow-hidden rounded-xl border border-border bg-card p-6 sm:p-7 transition-all hover:-translate-y-1 hover:border-gold/40 hover:shadow-gold"
+              style={{ animationDelay: `${i * 0.1}s` }}
+            >
+              <div className="relative">
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gold/15 text-gold transition-transform group-hover:scale-110">
+                  {it.icon}
+                </div>
+                <h3 className="font-display text-xl font-semibold">{it.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{it.desc}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function About() {
+  return (
+    <section id="about" className="relative border-y border-border bg-card/40 py-16 sm:py-24 overflow-hidden">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-2 md:items-center w-full">
+        <div className="min-w-0 w-full">
+          <p className="text-xs uppercase tracking-[0.2em] text-gold">About Senako</p>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl whitespace-normal break-words leading-tight">
+            Built on integrity, driven by results.
+          </h2>
+          <p className="mt-6 text-muted-foreground leading-relaxed text-sm sm:text-base break-words">
+            Senako Consulting Services is a proudly South African company combining
+            people-first HR practices, dependable trucking, and modern farming under
+            one banner. We believe in straight talk, honest pricing, and the kind
+            of delivery that earns repeat business.
+          </p>
+          <ul className="mt-6 space-y-3 text-sm">
+            {["Transparent pricing", "Local expertise", "Hands-on leadership", "Long-term partnerships"].map((t) => (
+              <li key={t} className="flex items-center gap-3">
+                <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gold text-primary-foreground text-xs font-bold">✓</span>
+                <span className="text-foreground">{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="relative w-full min-w-0">
+          <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-background p-1 shadow-gold">
+            <div className="h-full w-full rounded-xl bg-background/60 p-5 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[420px]">
+              <div className="animate-float">
+                <div className="font-display text-6xl sm:text-7xl font-bold text-gold/80 leading-none">S.</div>
+                <div className="mt-2 text-sm uppercase tracking-[0.25em] text-muted-foreground">Senako</div>
+              </div>
+
+              <div className="mt-6">
+                <p className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">Gallery</p>
+                <div
+                  className="flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory"
+                  style={{ scrollbarWidth: "thin", scrollbarColor: "oklch(0.32 0.008 60) transparent" }}
+                >
+                  {[
+                    { n: 1, src: "/images/owners-truck.jpg" },
+                    { n: 2, src: "/images/sheep.jpg" },
+                  ].map(({ n, src }) => (
+                    <div
+                      key={n}
+                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-solid border-gold/20 bg-gold/5 flex items-center justify-center overflow-hidden relative"
+                    >
+                      <img 
+                        src={src} 
+                        alt={`Senako work gallery item ${n}`} 
+                        className="h-full w-full object-cover block" 
+                        loading="lazy" 
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-6 grid grid-cols-3 gap-2 text-center text-[10px] sm:text-xs uppercase tracking-wider text-muted-foreground">
+                <div
