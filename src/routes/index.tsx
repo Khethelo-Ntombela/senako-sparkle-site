@@ -107,29 +107,29 @@ function Hero() {
         </svg>
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-6 py-28 md:py-36">
-        <p className="animate-rise mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-card/40 px-3 py-1 text-xs uppercase tracking-[0.18em] text-gold">
+      <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28 md:py-36">
+        <p className="animate-rise mb-5 inline-flex items-center gap-2 rounded-full border border-gold/30 bg-card/40 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-gold sm:text-xs">
           <span className="h-1.5 w-1.5 rounded-full bg-gold animate-glow" />
           Senako Consulting Services
         </p>
-        <h1 className="animate-rise font-display text-5xl font-bold leading-[1.05] md:text-7xl" style={{ animationDelay: "0.1s" }}>
+        <h1 className="animate-rise font-display text-4xl font-bold leading-[1.05] sm:text-5xl md:text-7xl" style={{ animationDelay: "0.1s" }}>
           People. Logistics. <br />
           <span className="shimmer-text">Land.</span>
         </h1>
-        <p className="animate-rise mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl" style={{ animationDelay: "0.2s" }}>
+        <p className="animate-rise mt-5 max-w-2xl text-base text-muted-foreground sm:mt-6 sm:text-lg md:text-xl" style={{ animationDelay: "0.2s" }}>
           We help South African businesses grow through sharp HR consulting,
           reliable trucking, and modern farming solutions — all under one trusted roof.
         </p>
-        <div className="animate-rise mt-10 flex flex-wrap gap-4" style={{ animationDelay: "0.3s" }}>
-          <a href="#contact" className="inline-flex items-center gap-2 rounded-md bg-gold px-6 py-3 font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03]">
+        <div className="animate-rise mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4" style={{ animationDelay: "0.3s" }}>
+          <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.03]">
             Start a conversation →
           </a>
-          <a href="#services" className="inline-flex items-center gap-2 rounded-md border border-border bg-card/60 px-6 py-3 font-semibold text-foreground hover:border-gold/50 transition-colors">
+          <a href="#services" className="inline-flex items-center justify-center gap-2 rounded-md border border-border bg-card/60 px-6 py-3 font-semibold text-foreground hover:border-gold/50 transition-colors">
             Explore services
           </a>
         </div>
 
-        <div className="animate-rise mt-16 grid grid-cols-3 gap-6 border-t border-border pt-8 text-sm md:max-w-xl" style={{ animationDelay: "0.4s" }}>
+        <div className="animate-rise mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8 text-sm sm:mt-16 sm:gap-6 md:max-w-xl" style={{ animationDelay: "0.4s" }}>
           <Stat value="3" label="Service lines" />
           <Stat value="100%" label="SA-owned" />
           <Stat value="24/7" label="Client support" />
