@@ -212,11 +212,11 @@ function Services() {
 
 function About() {
   return (
-    <section id="about" className="relative border-y border-border bg-card/40 py-24">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2 md:items-center">
+    <section id="about" className="relative border-y border-border bg-card/40 py-16 sm:py-24">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-2 md:items-center">
         <div>
           <p className="text-xs uppercase tracking-[0.2em] text-gold">About Senako</p>
-          <h2 className="mt-3 font-display text-4xl font-bold md:text-5xl">Built on integrity, driven by results.</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Built on integrity, driven by results.</h2>
           <p className="mt-6 text-muted-foreground leading-relaxed">
             Senako Consulting Services is a proudly South African company combining
             people-first HR practices, dependable trucking, and modern farming under
