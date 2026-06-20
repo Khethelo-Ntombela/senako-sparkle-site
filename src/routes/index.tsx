@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
+import ownersTruck from "@/assets/owners-truck.jpg.asset.json";
+import sheepImg from "@/assets/sheep.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -245,17 +247,27 @@ function About() {
                   className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory"
                   style={{ scrollbarWidth: "thin", scrollbarColor: "oklch(0.32 0.008 60) transparent" }}
                 >
-                  {[1, 2, 3].map((n) => (
+                  {[
+                    { n: 1, src: null as string | null },
+                    { n: 2, src: ownersTruck.url },
+                    { n: 3, src: sheepImg.url },
+                  ].map(({ n, src }) => (
                     <div
                       key={n}
-                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex flex-col items-center justify-center gap-2 text-gold/60 text-xs"
+                      className="snap-center shrink-0 w-[180px] h-[120px] rounded-lg border border-dashed border-gold/30 bg-gold/5 flex flex-col items-center justify-center gap-2 text-gold/60 text-xs overflow-hidden"
                     >
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6 opacity-60">
-                        <rect x="3" y="3" width="18" height="18" rx="2" />
-                        <circle cx="8.5" cy="8.5" r="1.5" />
-                        <path d="M21 15l-5-5L5 21" />
-                      </svg>
-                      <span>Image {n}</span>
+                      {src ? (
+                        <img src={src} alt={`Senako gallery ${n}`} className="h-full w-full object-cover" loading="lazy" />
+                      ) : (
+                        <>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-6 w-6 opacity-60">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <path d="M21 15l-5-5L5 21" />
+                          </svg>
+                          <span>Image {n}</span>
+                        </>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -324,13 +336,13 @@ function Contact({ onSubmit, status }: { onSubmit: (e: FormEvent<HTMLFormElement
             message and we'll be in touch within one business day.
           </p>
           <div className="mt-8 space-y-4 text-sm">
-            <a href="tel:0829047800" className="flex items-center gap-3 text-foreground hover:text-gold">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-gold/15 text-gold">H</span>
-              Hetisani — 082 904 7800
+            <a href="mailto:hetisani@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold break-all">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">H</span>
+              hetisani@senakoconsult.com
             </a>
-            <a href="tel:0833216757" className="flex items-center gap-3 text-foreground hover:text-gold">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-md bg-gold/15 text-gold">S</span>
-              Simphiwe — 083 321 6757
+            <a href="mailto:simphiwe@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold break-all">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold">S</span>
+              simphiwe@senakoconsult.com
             </a>
           </div>
         </div>
