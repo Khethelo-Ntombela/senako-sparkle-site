@@ -7,11 +7,11 @@ export default defineConfig({
   plugins: [
     tsconfigPaths(),
     tailwindcss(),
-    tanstackStart({
-      server: {
-        preset: 'netlify' // Crucial for routing server functions
-      }
-    })
+    // The SSR bundle (dist/server/server.js) is wrapped for Netlify by
+    // netlify/functions/server.mjs (Netlify Functions v2). No deploy preset
+    // is needed on the TanStack plugin itself — Netlify routes all requests
+    // through that function and serves dist/client as static assets.
+    tanstackStart()
   ],
   build: {
     cssMinify: 'esbuild'
