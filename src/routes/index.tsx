@@ -389,16 +389,21 @@ function Field({ label, name, type = "text", placeholder, required }: { label: s
 function Footer() {
   return (
     <footer className="border-t border-border bg-background py-10">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-sm text-muted-foreground md:flex-row">
-        <div className="flex items-center gap-2">
-          <Logo />
-          <span>© {new Date().getFullYear()} Senako Consulting Services</span>
+      <div className="mx-auto max-w-6xl px-6 text-sm text-muted-foreground">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <div className="flex items-center gap-2">
+            <Logo />
+            <span>© {new Date().getFullYear()} Senako Consulting Services</span>
+          </div>
+          <div className="flex gap-6">
+            <a href="#services" className="hover:text-gold">Services</a>
+            <a href="#owners" className="hover:text-gold">Founders</a>
+            <a href="#contact" className="hover:text-gold">Contact</a>
+          </div>
         </div>
-        <div className="flex gap-6">
-          <a href="#services" className="hover:text-gold">Services</a>
-          <a href="#owners" className="hover:text-gold">Founders</a>
-          <a href="#contact" className="hover:text-gold">Contact</a>
-        </div>
+        <p className="mt-4 text-center text-xs opacity-60">
+          Maintained by Litha Ntombela Enterprises Pty Ltd
+        </p>
       </div>
     </footer>
   );
