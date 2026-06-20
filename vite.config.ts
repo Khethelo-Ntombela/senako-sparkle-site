@@ -6,10 +6,10 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    tailwindcss(), // Adds standard Tailwind processing to the build pipeline
+    tailwindcss(),
     tanstackStart({
       server: {
-        preset: 'netlify'
+        preset: 'netlify' // Crucial for routing server functions
       }
     })
   ],
