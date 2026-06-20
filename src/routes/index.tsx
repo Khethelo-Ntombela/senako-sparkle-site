@@ -236,7 +236,7 @@ function About() {
           <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-background p-1 shadow-gold">
             <div className="h-full w-full rounded-xl bg-background/60 p-5 sm:p-8 flex flex-col justify-between min-h-[420px]">
               <div className="animate-float">
-                <div className="font-display text-7xl font-bold text-gold/80 leading-none">S.</div>
+                <div className="font-display text-6xl sm:text-7xl font-bold text-gold/80 leading-none">S.</div>
                 <div className="mt-2 text-sm uppercase tracking-[0.25em] text-muted-foreground">Senako</div>
               </div>
 
