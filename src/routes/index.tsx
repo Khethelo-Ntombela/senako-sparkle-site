@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
-import ownersTruck from "@/assets/owners-truck.jpg.asset.json";
-import sheepImg from "@/assets/sheep.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -129,7 +127,6 @@ function Hero() {
           </a>
         </div>
 
-        {/* Responsive Stats: Stacked on mobile, 3-columns on desktop */}
         <div className="animate-rise mt-12 grid grid-cols-1 gap-6 border-t border-border pt-8 text-sm sm:mt-16 sm:grid-cols-3 sm:gap-6 md:max-w-xl" style={{ animationDelay: "0.4s" }}>
           <Stat value="3" label="Service lines" />
           <Stat value="100%" label="SA-owned" />
@@ -235,14 +232,13 @@ function About() {
         </div>
         <div className="relative">
           <div className="rounded-2xl border border-gold/20 bg-gradient-to-br from-card to-background p-1 shadow-gold">
-            {/* Optimized Card Min-Height for Mobile views */}
             <div className="h-full w-full rounded-xl bg-background/60 p-5 sm:p-8 flex flex-col justify-between min-h-[350px] sm:min-h-[420px]">
               <div className="animate-float">
                 <div className="font-display text-6xl sm:text-7xl font-bold text-gold/80 leading-none">S.</div>
                 <div className="mt-2 text-sm uppercase tracking-[0.25em] text-muted-foreground">Senako</div>
               </div>
 
-              {/* Scrollable image strip */}
+              {/* Scrollable image strip mapping to your new /Public/images directory */}
               <div className="mt-6">
                 <p className="mb-3 text-xs uppercase tracking-wider text-muted-foreground">Gallery</p>
                 <div
@@ -251,8 +247,8 @@ function About() {
                 >
                   {[
                     { n: 1, src: null as string | null, label: "HR Systems" },
-                    { n: 2, src: ownersTruck.url, label: "Logistics Fleet" },
-                    { n: 3, src: sheepImg.url, label: "Farming Solutions" },
+                    { n: 2, src: "/Public/images/owners-truck.jpg", label: "Logistics Fleet" },
+                    { n: 3, src: "/Public/images/sheep.jpg", label: "Farming Solutions" },
                   ].map(({ n, src, label }) => (
                     <div
                       key={n}
@@ -299,4 +295,131 @@ function Owners() {
     { name: "Simphiwe Ntombela", role: "Co-Founder & Director", phone: "0833216757" },
   ];
   return (
-    <section id="owners" className="py-16 sm:py-2
+    <section id="owners" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-10 max-w-2xl sm:mb-14">
+          <p className="text-xs uppercase tracking-[0.2em] text-gold">The founders</p>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">The people behind Senako.</h2>
+        </div>
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+          {owners.map((o) => (
+            <div key={o.name} className="group rounded-xl border border-border bg-card p-6 sm:p-8 transition-all hover:border-gold/40">
+              <div className="flex items-start gap-4 sm:gap-5">
+                <div className="flex h-14 w-14 sm:h-16 sm:w-16 shrink-0 items-center justify-center rounded-full bg-gold font-display text-xl sm:text-2xl font-bold text-primary-foreground">
+                  {o.name.split(" ").map((p) => p[0]).join("")}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-display text-xl font-semibold truncate">{o.name}</h3>
+                  <p className="text-sm text-muted-foreground">{o.role}</p>
+                  <a href={`tel:${o.phone}`} className="mt-4 inline-flex items-center gap-2 text-sm text-gold hover:underline">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-4 w-4 shrink-0">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                    {o.phone.replace(/(\d{3})(\d{3})(\d{4})/, "$1 $2 $3")}
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Contact({ onSubmit, status }: { onSubmit: (e: FormEvent<HTMLFormElement>) => void; status: FormState }) {
+  return (
+    <section id="contact" className="relative border-t border-border bg-card/40 py-16 sm:py-24 md:py-32">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:gap-12 sm:px-6 md:grid-cols-5">
+        <div className="md:col-span-2">
+          <p className="text-xs uppercase tracking-[0.2em] text-gold">Get in touch</p>
+          <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl md:text-5xl">Let's talk about your project.</h2>
+          <p className="mt-5 text-sm sm:text-base text-muted-foreground">
+            Whether you need HR support, transport, or farming services — drop us a
+            message and we'll be in touch within one business day.
+          </p>
+          <div className="mt-8 space-y-4 text-sm flex flex-col">
+            <a href="mailto:hetisani@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold min-w-0">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold font-bold">H</span>
+              <span className="truncate break-all text-xs sm:text-sm">hetisani@senakoconsult.com</span>
+            </a>
+            <a href="mailto:simphiwe@senakoconsult.com" className="flex items-center gap-3 text-foreground hover:text-gold min-w-0">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-gold/15 text-gold font-bold">S</span>
+              <span className="truncate break-all text-xs sm:text-sm">simphiwe@senakoconsult.com</span>
+            </a>
+          </div>
+        </div>
+
+        <form onSubmit={onSubmit} className="md:col-span-3 rounded-2xl border border-border bg-background/60 p-5 sm:p-6 md:p-8 space-y-5">
+          <div className="grid gap-4 grid-cols-1 sm:grid-cols-2">
+            <Field label="Full name" name="name" required placeholder="Jane Dube" />
+            <Field label="Email" name="email" type="email" required placeholder="you@email.com" />
+            <Field label="Phone" name="phone" type="tel" placeholder="082 000 0000" />
+            <div className="flex flex-col gap-2">
+              <label className="text-xs uppercase tracking-wider text-muted-foreground">Service</label>
+              <select name="service" defaultValue="HR Consulting" className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30">
+                <option>HR Consulting</option>
+                <option>Trucking & Logistics</option>
+                <option>Farming Solutions</option>
+                <option>General enquiry</option>
+              </select>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="text-xs uppercase tracking-wider text-muted-foreground">Message</label>
+            <textarea name="message" required rows={5} maxLength={1000} placeholder="Tell us about your project..." className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
+          </div>
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-gold px-6 py-3 font-semibold text-primary-foreground shadow-gold transition-transform hover:scale-[1.01] disabled:opacity-60 text-sm sm:text-base"
+          >
+            {status === "sending" ? "Opening your mail app..." : status === "sent" ? "Message ready ✓" : "Send message"}
+          </button>
+          <p className="text-[11px] sm:text-xs text-muted-foreground leading-normal">
+            By submitting, you agree to be contacted regarding your enquiry.
+          </p>
+        </form>
+      </div>
+    </section>
+  );
+}
+
+function Field({ label, name, type = "text", placeholder, required }: { label: string; name: string; type?: string; placeholder?: string; required?: boolean }) {
+  return (
+    <div className="flex flex-col gap-2">
+      <label className="text-xs uppercase tracking-wider text-muted-foreground">{label}{required && <span className="text-gold"> *</span>}</label>
+      <input
+        type={type}
+        name={name}
+        required={required}
+        placeholder={placeholder}
+        maxLength={200}
+        className="rounded-md border border-input bg-card px-4 py-3 text-sm outline-none focus:border-gold focus:ring-2 focus:ring-gold/30 w-full"
+      />
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t border-border bg-background py-10">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 text-sm text-muted-foreground">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          <div className="flex items-center gap-2 text-center sm:text-left">
+            <Logo />
+            <span>© {new Date().getFullYear()} Senako Consulting Services</span>
+          </div>
+          <div className="flex gap-6 text-xs sm:text-sm">
+            <a href="#services" className="hover:text-gold transition-colors">Services</a>
+            <a href="#owners" className="hover:text-gold transition-colors">Founders</a>
+            <a href="#contact" className="hover:text-gold transition-colors">Contact</a>
+          </div>
+        </div>
+        <p className="mt-6 text-center text-[11px] opacity-60">
+          Maintained by Litha Ntombela Enterprises Pty Ltd
+        </p>
+      </div>
+    </footer>
+  );
+}
