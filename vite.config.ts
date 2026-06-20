@@ -8,8 +8,11 @@ export default defineConfig({
     tsconfigPaths(),
     tailwindcss(),
     tanstackStart({
+      // The SSR bundle is wrapped by netlify/functions/server.mjs (Netlify
+      // Functions v2). We keep the default Vite SSR output at dist/server
+      // and let the Netlify function import it directly.
       server: {
-        preset: 'netlify' // Crucial for routing server functions
+        preset: 'node-server'
       }
     })
   ],
